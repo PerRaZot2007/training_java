@@ -1,0 +1,1 @@
+Class  Pen. Objects of class Pen may be a different types. Object of class Pen must have manufacturer, color, size. If size of pen not set then value of size will be 1.0; Object of class Pen have Ink. If ink percentage is too low, then you cannot write by this pen, but you can change ink. 
