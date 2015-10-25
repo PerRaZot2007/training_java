@@ -9,9 +9,13 @@ public class MainClass {
 		Student rmd = new Student("Maksim", "Rakickij");
 		Student filas =  new Student("Filip", "Zotov");
 		
+		
 		group1.addStudent(rmd, 10d);
 		group2.addStudent(rmd, 3);
 		group1.addStudent(filas, 3d);
+		group1.addStudent(new Student("new", "Student"), 4d);
+
+		group1.addStudent(new Student("new", "Student"), 8d);
 		
 		rmd.showAllDisciplines();
 		
