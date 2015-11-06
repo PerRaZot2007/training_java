@@ -1,38 +1,26 @@
-package by.grodno.rmd.training.se041;
+package by.grodno.rmd.training.se041withSe042;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class ByteIO {
+public class CharIO {
 	private StringBuilder text = new StringBuilder();
 	private JavaWord jW = new JavaWord();
 	private char[] separatorsArray = { ',', '.', ';', ':', '\'', '\"', ']', '[', '{', '}', '(', ')', '<', '>' };
 
-	private boolean isSeparator(char symbol) {
-		boolean check = false;
-		for (int i = 0; i < separatorsArray.length; i++) {
-			if (symbol == separatorsArray[i]) {
-				check = true;
-			}
-		}
-		return check;
-	}
 
 	private void getTextFromFile(String filePath) {
-		try (FileInputStream fileIn = new FileInputStream(filePath)) {
-			int i = -1;
-			while ((i = fileIn.read()) != -1) {
-				if(!isSeparator((char) i )) {
-					text.append((char) i);
+		try (BufferedReader fileIn = new BufferedReader(new FileReader(filePath))) {
+			String s;
+			while ((s = fileIn.readLine()) != null) {
+				for (int i = 0; i < separatorsArray.length; i++) {
+					s=s.replace(separatorsArray[i], ' ');
 				}
-				else {
-					text.append(' ');
-				}
+				text.append(s);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -56,8 +44,10 @@ public class ByteIO {
 		
 		jW.getOutputWords().sort(com);
 		
-		try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
-			fileOut.write(jW.getOutputWords().toString().getBytes(), 0, jW.getOutputWords().toString().length());
+		try (BufferedWriter fileOut = new BufferedWriter(new FileWriter(filePath))) {
+			for (int i = 0; i < jW.getOutputWords().size(); i++) {
+				fileOut.write(jW.getOutputWords().get(i));
+			}			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

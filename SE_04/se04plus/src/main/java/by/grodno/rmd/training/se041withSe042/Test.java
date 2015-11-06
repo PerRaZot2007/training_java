@@ -1,4 +1,4 @@
-package by.grodno.rmd.training.se041;
+package by.grodno.rmd.training.se041withSe042;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -17,6 +17,7 @@ public class Test {
 		System.out.println(hM.get("void"));
 
 		ByteIO b = new ByteIO();
+		CharIO c = new CharIO();
 		/*b.getTextFromFile("d:\\NewbiePack.java");
 
 		Date d = new Date();
@@ -35,7 +36,7 @@ public class Test {
 		}
 		
 		System.out.println(hM.values());*/
-		b.getCountOfKeyWords("d:\\NewbiePack.java", "d:\\test.txt");
+		c.getCountOfKeyWords("d:\\NewbiePack.java", "d:\\test12.txt");
 		
 	}
 

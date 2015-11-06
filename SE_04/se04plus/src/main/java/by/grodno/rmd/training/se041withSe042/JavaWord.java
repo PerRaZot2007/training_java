@@ -1,4 +1,4 @@
-package by.grodno.rmd.training.se041;
+package by.grodno.rmd.training.se041withSe042;
 
 import java.io.FileInputStream;
 import java.io.IOException;
