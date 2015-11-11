@@ -1,0 +1,16 @@
+Doctor doctor1 = new Doctor(); //correct
+Doctor doctor2 = new MedicalStaff(); //not correct. We must use ClassCast, but MedicalStaff can be not Doctor
+Doctor doctor3 = new HeadDoctor(); //correct. HeadDoctor is child class of Doctor
+Object object1 = new HeadDoctor(); //correct. Object is parrent class for all classes
+HeadDoctor doctor5 = new Object(); //not correct. We must use ClassCast, but Object can be not HeadDoctor
+Doctor doctor6  = new Nurse(); //not correct.
+Nurse nurse = new Doctor(); //not correct
+Object object2 = new Nurse(); 	//correct
+ 
+ 
+ 
+List<Doctor> list1= new ArrayList<Doctor>(); //correct
+List<MedicalStaff> list2 = new ArrayList<Doctor>(); //not correctt
+List<Doctor> list3 = new ArrayList<MedicalStaff>(); //not correct
+List<Object> list4 = new ArrayList<Doctor>(); //not correct
+List<Object> list5 = new ArrayList<Object>(); //correct
